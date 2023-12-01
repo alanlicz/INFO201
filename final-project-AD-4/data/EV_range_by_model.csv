@@ -1,0 +1,27 @@
+VEHICLE,RANGE(Miles),RANGE(KMs),LIST PRICE ,COST/MILE
+Fiat 500e,84,135,"$33,460 ",$398 
+MINI CooperSE,110,177,"$29,900 ",$272 
+Nissan LEAF,149,240,"$31,600 ",$212 
+BMW i3,153,246,"$44,450 ",$291 
+Hyundai I0NIQ EV,170,274,"$33,045 ",$194 
+PorscheTaycan(Turbo s),192,309,"$187,610 ",$977 
+PorscheTaycan(Turbo),201,323,"$153,510 ",$764 
+PorscheTaycan(4S Perf Battery Plus),203,327,"$112,990 ",$557 
+Audi e-tron,204,328,"$65,900 ",$323 
+Nissan LEAF(e+SV/SL),215,346,"$39,750 ",$185 
+Audi e-tron(Sportback),218,351,"$69,100 ",$317 
+Nissan LEAF(e+S),226,364,"$38,200 ",$169 
+Jaguar l-PACE,234,377,"$69,850 ",$299 
+Kia Niro EV,239,385,"$39,090 ",$164 
+Tesla Model 3(Standard Range Plus),250,402,"$37,990 ",$152 
+Hyundai Kona EV,258,415,"$37,190 ",$144 
+Chevrolet Bolt EV,259,417,"$36,620 ",$141 
+Polestar 2,275,443,"$59,900 ",$218 
+Tesla Model Y(Performance),291,468,"$59,990 ",$206 
+Tesla Model 3(LR Performance),299,481,"$54,990 ",$184 
+Tesla Model X(Performance),305,491,"$99,990 ",$328 
+Tesla Model Y(Long Range),316,509,"$49,990 ",$158 
+Tesla Model 3(Long Range),322,518,"$46,990 ",$146 
+Tesla Model S(Performance),348,560,"$94,990 ",$273 
+Tesla Model X(Long range plus),351,565,"$79,990 ",$228 
+Tesla Model S((Long range plus)),402,647,"$74,990 ",$187 

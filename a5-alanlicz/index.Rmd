@@ -1,0 +1,71 @@
+---
+title: "a5-data-report"
+author: "Alan Li"
+date: "11/23/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(knitr)
+library(tidyr)
+library(leaflet)
+library(ggplot2)
+```
+
+```{r include=FALSE}
+source("analysis.R")
+```
+
+## Summary Information
+
+Based on the [shootings 2018 dataset](http://www.shootingtracker.com), there 
+are `r gun_shooting_occurencies` shootings occurred in the year of 2018. Also, `r lives_lost` lives 
+were lost during those `r gun_shooting_occurencies` shootings. Moreover, city that was most impacted 
+by shootings is `r most_impact_city`. The state that was most impacted by shootings 
+is `r most_impact_state`. And the date which is most impacted by shootings is `r most_horrible_day`.
+
+## Summary Table
+`r state_analysis_table`
+
+* In this table, I grouped the data by states and calculate the total death number by each state.
+Then I sort the number by a decreasing order. It turns out California as the most dangerous state
+when it comes to gunshooting and Utah is the safest.
+
+## Description of a Particular Incident
+
+The most horrible gun shooting recorded would be the one located at `r city` with the most people 
+killed. The incident occured at `r date_of_event` and it happened at `r address`, `r city`, 
+`r state`. In this shooting `r number_killed` souls were lost and the total number of people injured
+is `r number_injured`. The killing spree is the deadliest high school shooting in United States 
+history, surpassing the Columbine High School massacre that killed 15, including the perpetrators, 
+in Colorado in April 1999. 
+
+Link to Additional Information: 
+<https://www.history.com/this-day-in-history/parkland-marjory-stoneman-douglas-school-shooting>
+
+## Interactive Map
+
+`r map`
+
+Each marker represent a gun shooting event. The radius of the marker represent the total casualties 
+of the shooting. As shown on the map, east coast has significantly more shootings than west coast. 
+The shootings tends to happen at major cities like New York and Chicago.
+
+## Plot of your choice
+```{r mass_shootings_data, echo=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(data = gun_shooting, aes(state, num_killed)) + geom_bar(stat="identity") +
+theme(axis.text.x = element_text(size  = 10, angle = 45, hjust = 1, vjust = 1))
+```
+
+## Question
+* Which state(s) has significantly higer deaths compared to others?
+
+## Insights
+*California and Florida has nearly 50 deaths during the whole year of 2018. Which is significantly
+more than other states
+*Connecticut, Massachusetts and Utah has not even one single death by shooting in the whole year of
+2018
+

@@ -1,0 +1,15 @@
+h1{
+  font-family: Sans-Serif;
+  text-align: center;
+}
+
+h3{
+  background-color: purple;
+  color: white;
+  text-align: center;
+}
+
+#footer{
+  text-align: left;
+  font-weight: bold;
+}

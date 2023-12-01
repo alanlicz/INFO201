@@ -1,0 +1,62 @@
+---
+title: "Electric Vehicles Market Analysis"
+output: html_document
+---
+
+```{r setup, include=F, warning=F, echo=F}
+knitr::opts_chunk$set(echo = F)
+source("./scripts/summary_info.R")
+source("./scripts/aggregate_table.R", chdir = T)
+source("./scripts/chart_1.R", chdir = T)
+source("./scripts/chart_2.R")
+source("./scripts/chart_3.R")
+dataset1 <- read.csv("./data/EV_range_by_model.csv")
+dataset2 <- read.csv("./data/Ev_sales_by_model.csv")
+library(dplyr)
+library(lintr)
+library(styler)
+library(ggplot2)
+library(tidyr)
+library(knitr)
+```
+## Introduction
+
+In this project we will be utilizing two different data sets related to the
+EV(electronic vehicles). The data sets covers EV sales and range for different models and types.
+
+# Sales of Electric Vehicles and the impacts of Range Data
+On September 23rd, 2020, the governor of California signed a history-making executive order: the state will ban the sales of new gas-powered cars within the next 15 years. Over the last year, the stock price of Tesla, the leading enterprise in the EV (electronic vehicle) field, has increased by 500%. This indicates that the public is beginning to examine more closely the variety of electric vehicles that are available now or will be in the future.  This market will continue to grow as time goes on, and more orders like those issued by Gavin Newsom come into effect.  Because of this, we would like to study what affects the sales of electric vehicles.
+
+## Summary Information
+From our initial analysis of the dataset, we found that there were `r get_summary_info(summary_info)[[1]]` electric vehicles included.  The vehicle with the longest range was the `r get_summary_info(summary_info)[[2]]`, and the vehicle with the shortest range was the `r get_summary_info(summary_info)[[3]]`.  The most expensive vehicle was the `r get_summary_info(summary_info)[[4]]`, and the least expensive was the `r get_summary_info(summary_info)[[5]]`.  The cost per mile data shows that the car that gave the best value was the `r get_summary_info(summary_info)[[6]]`, with the `r get_summary_info(summary_info)[[7]]` returning the highest cost per mile.
+
+
+## Aggregate Table - Types of Electric Vehicles
+```{r echo = F, warning = F}
+kable(total_sales_of_each_type(dataset2),
+       col.names = c("Type", "Number of Vehicles on the Market"))
+
+```
+
+This aggregate table shows the two types of electric vehicles on the market at the time arranged in descending order.  Plug-in Hybrid Electric Vehicles, or PHEVs, constituted a much larger share of the market than All-Electric Vehicles, or EVs, did.  We think this observation is important, as it shows that the technology being used here is still in the process of development, and newer technology is more expensive, both for producers and consumers; as such, companies have created less of the All-Electric Vehicles in this time frame.
+
+## Chart 1 - Number of PHEV vs EV on the Market
+```{r echo = F, warning = F}
+phev_vs_ev(dataset2)
+```
+
+This chart shows the percentage of vehicles that fall into each of the two types from the aggregate table from above.  This chart shows the balance of vehicles on the market, and combined with the table above, illustrates a key takeaway: PHEVs were far more popular than EVs during this time frame, despite not necessarily being more plentiful.  The percentage of PHEVs sold is higher than that of EVs, but not by enough to account for the difference seen in the aggregate table.
+
+## Chart 2 - List Price Compared to Range of Electric Vehicles
+```{r echo = F, warning = F}
+price_vs_range(dataset1)
+```
+
+This scatterplot compares the list price and the range of the various models of cars our data set surveyed.  This chart is intended to show the relationship, or lack thereof, between the cost of a car and how far it runs. As illustrated by this chart, a more expensive car does not guarantee that it will run for longer, but there is a general trend that indicates that more expensive electric vehicles have longer ranges.
+
+## Chart 3 - Total Sales of Electric Vehicles in 2011-2019
+```{r echo = F, warning = F}
+sales_by_yr_chart(dataset2)
+```
+
+This bar chart shows the total sales of electric vehicles from 2011-2019.  It is intended to show the change in buying trends for electric vehicles each year. Although it may seem like the popularity of electric vehicles have been steadily rising as popular brands such as Tesla have become more affordable, this data shows that electric vehicles fluctuate heavily, dropping in 2014-2015 and again in 2019. This illustrates that while there is a growing market for electric vehicles, it is very unstable and should be further analyzed.
